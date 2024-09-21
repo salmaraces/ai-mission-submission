@@ -40,7 +40,7 @@ void findMinDiff(struct Node *ptr, int k, int &min_diff,
     // update min_diff and min_diff_key by checking
     // current node value
     int diff = abs(ptr->key - k);
-    if (min_diff < diff)
+    if (min_diff >= diff)
     {
         min_diff = diff;
         min_diff_key = ptr->key;

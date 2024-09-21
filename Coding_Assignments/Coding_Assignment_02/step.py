@@ -20,7 +20,21 @@ def step(mdp, V, pi, Vprev):
         V: Value function (the expected future reward function). numpy array with shape nS
         pi: Policy (best action should I take at a specific state based on the current value). numpy array with shape nS
     """
-    ######################################## your Implementation goes here ########################################
-    ## your code
-    ###############################################################################################################
+
+    V = np.copy(Vprev)  
+
+    for s in range(mdp.nS):
+        Q_sa = np.zeros(mdp.nA) 
+
+        for a in range(mdp.nA):
+            q_sa = 0  
+
+            for prob, next_state, reward in mdp.P[s][a]:
+                q_sa += prob * (reward + Vprev[next_state])
+
+            Q_sa[a] = q_sa  
+
+        V[s] = np.max(Q_sa)
+        pi[s] = np.argmax(Q_sa)
+
     return V, pi

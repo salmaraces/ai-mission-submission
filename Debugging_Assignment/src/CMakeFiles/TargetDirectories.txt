@@ -1,0 +1,3 @@
+/home/user/CMakeFiles/debugging_code.dir
+/home/user/CMakeFiles/edit_cache.dir
+/home/user/CMakeFiles/rebuild_cache.dir
